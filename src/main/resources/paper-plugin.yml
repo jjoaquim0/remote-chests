@@ -1,0 +1,18 @@
+name: RemoteChests
+version: '${version}'
+main: dev.joaquim.remotechests.RemoteChestsPlugin
+api-version: '${apiVersion}'
+description: Registre baus pelo chat e abra eles de qualquer lugar do servidor.
+author: jjoaquim0
+website: https://github.com/jjoaquim0/remote-chests
+
+permissions:
+  remotechests.use:
+    description: Permite registrar e abrir baus remotos.
+    default: true
+  remotechests.unlimited:
+    description: Ignora o limite de baus por jogador.
+    default: op
+  remotechests.admin:
+    description: Permite ver/gerenciar os baus de outros jogadores e recarregar a config.
+    default: op

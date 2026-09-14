@@ -1,0 +1,100 @@
+# ---------------------------------------------------------------------------
+# RemoteChests
+# ---------------------------------------------------------------------------
+
+settings:
+  # Quantos baus cada jogador pode registrar. Use -1 para ilimitado.
+  # A permissao "remotechests.unlimited" ignora este limite.
+  max-chests-per-player: 20
+
+  # Distancia maxima (em blocos) para mirar em um bau com /bau set.
+  set-distance: 6
+
+  # Permite abrir um bau que esta em outro mundo/dimensao.
+  allow-cross-world: true
+
+  # Segundos de espera entre duas aberturas remotas. 0 desativa.
+  open-cooldown-seconds: 2
+
+  # Toca o som de abrir/fechar e anima a tampa no bau real,
+  # para que quem estiver por perto perceba o acesso.
+  animate-real-block: true
+
+  # Impede que outros jogadores quebrem um bau registrado.
+  # O dono continua podendo quebrar (o registro e removido automaticamente).
+  protect-registered-blocks: true
+
+  # Impede que explosoes destruam baus registrados.
+  protect-from-explosions: true
+
+  # Remove o registro automaticamente quando o bloco nao existe mais.
+  auto-remove-missing: false
+
+  # Tipos de bloco que podem ser registrados.
+  allowed-containers:
+    - CHEST
+    - TRAPPED_CHEST
+    - BARREL
+    - SHULKER_BOX
+    - WHITE_SHULKER_BOX
+    - ORANGE_SHULKER_BOX
+    - MAGENTA_SHULKER_BOX
+    - LIGHT_BLUE_SHULKER_BOX
+    - YELLOW_SHULKER_BOX
+    - LIME_SHULKER_BOX
+    - PINK_SHULKER_BOX
+    - GRAY_SHULKER_BOX
+    - LIGHT_GRAY_SHULKER_BOX
+    - CYAN_SHULKER_BOX
+    - PURPLE_SHULKER_BOX
+    - BLUE_SHULKER_BOX
+    - BROWN_SHULKER_BOX
+    - GREEN_SHULKER_BOX
+    - RED_SHULKER_BOX
+    - BLACK_SHULKER_BOX
+
+# Mensagens em MiniMessage (https://docs.advntr.dev/minimessage/format.html)
+messages:
+  prefix: "<gradient:#f2c14e:#d98324><bold>Baus</bold></gradient> <dark_gray>»</dark_gray> "
+  players-only: "<red>Esse comando so pode ser usado por jogadores."
+  no-permission: "<red>Voce nao tem permissao para isso."
+  invalid-name: "<red>Nome invalido. Use de 1 a 32 caracteres entre letras, numeros, <white>_</white> e <white>-</white>."
+  name-taken: "<red>Voce ja tem um bau chamado <white><name></white>."
+  not-found: "<red>Voce nao tem nenhum bau chamado <white><name></white>."
+  not-looking-at-container: "<red>Olhe para um bau (ou barril/shulker) a no maximo <white><distance></white> blocos."
+  container-not-allowed: "<red>Blocos do tipo <white><type></white> nao podem ser registrados."
+  already-registered: "<red>Esse bloco ja esta registrado como <white><name></white> por <white><owner></white>."
+  registered: "<green>Bau <white><name></white> registrado em <gray><world> <x>, <y>, <z></gray>."
+  removed: "<green>Bau <white><name></white> removido."
+  renamed: "<green>Bau <white><old></white> renomeado para <white><name></white>."
+  limit-reached: "<red>Voce atingiu o limite de <white><limit></white> baus."
+  opening: "<gray>Carregando <white><name></white>..."
+  world-not-loaded: "<red>O mundo <white><world></white> nao esta carregado."
+  cross-world-denied: "<red>Voce precisa estar em <white><world></white> para abrir esse bau."
+  missing-block: "<red>O bau <white><name></white> nao existe mais em <gray><world> <x>, <y>, <z></gray>."
+  auto-removed: "<yellow>O registro de <white><name></white> foi removido porque o bloco sumiu."
+  cooldown: "<red>Aguarde <white><seconds>s</white> antes de abrir outro bau."
+  list-empty: "<gray>Voce ainda nao registrou nenhum bau. Mire em um e use <white>/bau set <nome></white>."
+  list-header: "<gray>Seus baus <dark_gray>(<white><count></white>/<white><limit></white>)</dark_gray>:"
+  list-entry: "<dark_gray> • </dark_gray><hover:show_text:'<gray><world> <x>, <y>, <z>'><click:run_command:'/bau abrir <name>'><gold><name></gold></click></hover> <dark_gray>—</dark_gray> <gray><type></gray>"
+  info-header: "<gray>Bau <white><name></white>:"
+  info-owner: "<dark_gray> • </dark_gray><gray>Dono: <white><owner></white>"
+  info-location: "<dark_gray> • </dark_gray><gray>Local: <white><world> <x>, <y>, <z></white>"
+  info-type: "<dark_gray> • </dark_gray><gray>Tipo: <white><type></white>"
+  info-usage: "<dark_gray> • </dark_gray><gray>Ocupacao: <white><used></white>/<white><size></white> slots"
+  info-created: "<dark_gray> • </dark_gray><gray>Criado em: <white><date></white>"
+  info-last-opened: "<dark_gray> • </dark_gray><gray>Ultimo acesso: <white><date></white>"
+  info-never: "nunca"
+  protected-block: "<red>Esse bau esta registrado como <white><name></white> por <white><owner></white>."
+  owner-broke-block: "<yellow>Voce quebrou o bau <white><name></white>; o registro foi removido."
+  chest-destroyed: "<red>Seu bau <white><name></white> foi destruido por <white><player></white> e o registro saiu da lista."
+  admin-list-header: "<gray>Baus de <white><player></white> <dark_gray>(<white><count></white>)</dark_gray>:"
+  reloaded: "<green>Configuracao recarregada."
+  player-not-found: "<red>Jogador <white><player></white> nao encontrado."
+  help-header: "<gray>Comandos do RemoteChests:"
+  help-set: "<dark_gray> • </dark_gray><gold>/bau set <nome></gold> <dark_gray>—</dark_gray> <gray>registra o bau que voce esta olhando"
+  help-open: "<dark_gray> • </dark_gray><gold>/bau abrir <nome></gold> <dark_gray>—</dark_gray> <gray>abre o bau de onde voce estiver"
+  help-list: "<dark_gray> • </dark_gray><gold>/bau lista</gold> <dark_gray>—</dark_gray> <gray>lista os seus baus"
+  help-info: "<dark_gray> • </dark_gray><gold>/bau info <nome></gold> <dark_gray>—</dark_gray> <gray>detalhes e ocupacao do bau"
+  help-rename: "<dark_gray> • </dark_gray><gold>/bau renomear <nome> <novo></gold> <dark_gray>—</dark_gray> <gray>troca o nome"
+  help-remove: "<dark_gray> • </dark_gray><gold>/bau remover <nome></gold> <dark_gray>—</dark_gray> <gray>apaga o registro (o bau continua no mundo)"
