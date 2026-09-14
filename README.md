@@ -68,18 +68,36 @@ Destaques:
 
 ## Compilando
 
-Requer JDK 21.
+Requer **JDK 25** — Minecraft 26.1+ exige. Se você não tiver, o Gradle baixa
+sozinho (o `settings.gradle.kts` já traz o resolvedor de toolchain).
 
 ```bash
 ./gradlew build
-# build/libs/RemoteChests-1.0.0.jar
+# gera build/libs/RemoteChests-1.0.0.jar
 ```
 
-> **Confira a versão do Paper antes do primeiro build.** No topo do
-> `build.gradle.kts` existe `val minecraftVersion = "26.2"`, que vira tanto a
-> dependência `io.papermc.paper:paper-api:26.2-R0.1-SNAPSHOT` quanto o
-> `api-version` do `paper-plugin.yml`. Se as coordenadas reais da sua versão
-> forem diferentes, essa única linha resolve as duas coisas.
+No Windows use `gradlew.bat build`.
+
+> **Confira a versão do Paper antes do primeiro build.** O Paper 26.x abandonou
+> o formato `-R0.1-SNAPSHOT`; agora o artefato é `26.2.build.<n>-stable`. O
+> `build.gradle.kts` está fixado em `26.2.build.123-stable`. Se der erro de
+> dependência não encontrada, veja o build mais recente em
+> <https://repo.papermc.io/repository/maven-public/io/papermc/paper/paper-api/>
+> e troque a linha, ou use `"[26.2.build,)"` para pegar sempre o último.
+
+## Instalando no servidor
+
+1. Copie `build/libs/RemoteChests-1.0.0.jar` para a pasta `plugins/` do servidor.
+2. Reinicie o servidor (reload não registra comandos Brigadier direito).
+3. Confira no console que o plugin carregou e teste:
+
+```
+/bau set teste     # mirando num baú
+/bau abrir teste   # ande pra longe e abra
+```
+
+O `config.yml` e o `chests.yml` aparecem em `plugins/RemoteChests/` no primeiro
+start. Depois de mexer no `config.yml`, use `/bau admin recarregar`.
 
 ## Dados
 
